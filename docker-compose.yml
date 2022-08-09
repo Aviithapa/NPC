@@ -1,0 +1,52 @@
+version: '3.0'
+
+services:
+    mariadb:
+        container_name: npc-db
+        image: mariadb
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USERNAME: npc
+            MYSQL_PASSWORD: npc
+            MYSQL_DATABASE: npc
+        tty: true
+        volumes:
+            - npc-db-data:/var/lib/mysql
+        ports:
+            - "3308:3306"
+
+    php-fpm:
+        container_name: npc-app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        tty: true
+        volumes:
+            - ./:/var/www/html
+
+    nginx:
+        container_name: npc-webserver
+        image: nginx:1.17-alpine
+        environment:
+            PHP_UPSTREAM_CONTAINER: npc-app
+            PHP_UPSTREAM_PORT: 8000
+        volumes:
+            - ./:/var/www/html
+            - ./docker/nginx/conf.d/app.conf:/etc/nginx/conf.d/app.conf
+            - ./docker/nginx/log:/var/log/nginx
+        depends_on:
+            - php-fpm
+        ports:
+            - "8082:80"
+     
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: npc-phpmyadmin
+        ports:
+            - 8087:80
+        environment:
+            - PMA_ARBIRARY=1
+            - PMA_HOST=npc-db
+
+volumes:
+    npc-db-data:
