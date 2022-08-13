@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Officer\BaseController;
 use App\Http\Requests\Application\StoreApplicantProfileRequest;
 use App\Http\Requests\Application\UpdateApplicantProfileRequest;
+use App\Services\Application\ApplicationCreator;
 use Illuminate\Http\Request;
 
 class ApplicationController extends BaseController{
@@ -30,11 +31,12 @@ class ApplicationController extends BaseController{
     // }
  
     public function update(UpdateApplicantProfileRequest $request, $id){
-
+        return ;
     }
 
-    public function store(StoreApplicantProfileRequest $request){
-
+    public function store(StoreApplicantProfileRequest $request, ApplicationCreator $applicationCreator){
+     $data = $applicationCreator->store($request);
+     return view('admin.website.application.index');
     }
 
     public function show()
