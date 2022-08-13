@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Officer\BaseController;
+use App\Http\Requests\Application\StoreApplicantProfileRequest;
+use App\Http\Requests\Application\UpdateApplicantProfileRequest;
 use Illuminate\Http\Request;
 
 class ApplicationController extends BaseController{
@@ -27,11 +29,11 @@ class ApplicationController extends BaseController{
        
     // }
  
-    public function update(Request $request, $id){
+    public function update(UpdateApplicantProfileRequest $request, $id){
 
     }
 
-    public function store(Request $request){
+    public function store(StoreApplicantProfileRequest $request){
 
     }
 

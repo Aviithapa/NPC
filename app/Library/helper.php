@@ -54,7 +54,7 @@ if (!function_exists('imageNotFound')) {
                 return 'https://via.placeholder.com/350x150';
                 break;
             default:
-                return 'https://via.placeholder.com/350x150';
+                return 'https://via.placeholder.com/100x100';
             //return asset('images/default.png');
 
         }

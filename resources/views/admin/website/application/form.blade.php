@@ -13,7 +13,7 @@
                      id="transcript_img">
 
             @else
-                <img src="{{isset($user)?$user->getTranscriptImage():imageNotFound('user')}}" height="250" width="200"
+                <img src="{{isset($user)?$user->getTranscriptImage():imageNotFound()}}" height="250" width="200"
                      id="transcript_img">
             @endif
         </div>
@@ -187,4 +187,112 @@
           {!! Form::Number('to_no_per',null, ['class' => 'form-control']) !!}
         </fieldset>
     </div>
+    <div class="grid-body ">
+        <div class="row">
+            <div class="col-lg-4">
+                <label>Citizenship Front Image</label>
+                <div class="col-md-12 col-lg-12">
+                    @if(isset($data))
+                        <img src="{{url(isset($data)?$data->getCitizenshipFrontImage():imageNotFound())}}" height="250" width="200"
+                             id="citizenship_front_img">
+
+                    @else
+                        <img src="{{isset($data)?$data->getCitizenshipFrontImage():imageNotFound()}}" height="250" width="200"
+                             id="citizenship_front_img">
+                    @endif
+                </div>
+
+                <div class="form-group col-md-12 col-lg-12">
+                    <small>Below 1 mb</small>
+                    <br>
+                    <small id="citizenship_front_help_text" class="help-block"></small>
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0">
+                        <div id="citizenship_front_progress" class="progress-bar progress-bar-success"
+                             style="width: 0%">
+                        </div>
+                    </div><br>
+                    <input type="file" id="citizenship_front_image" name="citizenship_front_image"
+                           onclick="anyFileUploader('citizenship_front')">
+                    <input type="hidden" id="citizenship_front_path" name="citizenship_front" class="form-control"
+                           value="{{isset($data)?$data->citizenship_front:''}}"/>
+                    {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <label>Citizenship Back Image</label>
+                <div class="col-md-12 col-lg-12">
+                    @if(isset($data))
+                        <img src="{{url(isset($data)?$data->getCitizenshipBackImage():imageNotFound())}}" height="250"
+                             id="citizenship_back_img">
+
+                    @else
+                        <img src="{{isset($data)?$data->getCitizenshipBackImage():imageNotFound()}}" height="250"
+                             id="citizenship_back_img">
+                    @endif
+                </div>
+
+                <div class="form-group col-md-12 col-lg-12">
+                    <small>Below 1 mb</small><br>
+                    <small id="citizenship_back_help_text" class="help-block"></small>
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0">
+                        <div id="citizenship_back_progress" class="progress-bar progress-bar-success"
+                             style="width: 0%">
+                        </div>
+                    </div><br>
+                    <input type="file" id="citizenship_back_image" name="citizenship_back_image"
+                           onclick="anyFileUploader('citizenship_back')">
+                    <input type="hidden" id="citizenship_back_path" name="citizenship_back" class="form-control"
+                           value="{{isset($data)?$data->citizenship_back:''}}"/>
+                    {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+
+                <label>Signature  Image </label>
+                <div class="col-md-8 col-lg-8">
+                    @if(isset($data))
+                        <img src="{{url(isset($data)?$data->getSignatureImage():imageNotFound())}}" height="250" width="300"
+                             id="signature_img">
+
+                    @else
+                        <img src="{{isset($data)?$data->getSignatureImage():imageNotFound()}}" height="250" width="300"
+                             id="signature_img">
+                    @endif
+                </div>
+
+                <div class="form-group col-md-12 col-lg-12">
+                    <small>Below 1 mb</small><br>
+                    <small id="signature_help_text" class="help-block"></small>
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0">
+                        <div id="signature_progress" class="progress-bar progress-bar-success"
+                             style="width: 0%">
+                        </div>
+                    </div><br>
+                    <input type="file" id="signature_image" name="signature_image"
+                           onclick="anyFileUploader('signature')">
+                    <input type="hidden" id="signature_path" name="signature_image" class="form-control"
+                           value="{{isset($data)?$data->signature_image:''}}"/>
+                    {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    @include('admin.website.qualification.slc')
+    @include('admin.website.qualification.plus-two')
+    @include('admin.website.qualification.bachelor')
+
+
 </div>
