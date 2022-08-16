@@ -4,7 +4,7 @@
     <div class="sidebar"> 
       <!-- Sidebar user panel -->
       <div class="user-panel">
-        <div class="image text-center"><img src="{{ assets('dist/img/img1.jpg') }}" class="img-circle" alt="User Image"> </div>
+        <div class="image text-center"><img src="" class="img-circle" alt="User Image"> </div>
         <div class="info">
           <p>Abhishek Thapa</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a> </div>

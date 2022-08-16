@@ -13,7 +13,6 @@ class ApplicantController extends BaseController{
     }
 
     public function index(){ 
-        dd('index');
         return view('admin.website.applicant.index');
     }
 

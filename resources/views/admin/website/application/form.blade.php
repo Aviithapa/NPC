@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-lg-4">
         <div class="col-md-12 col-lg-12">
-            <label>Transcript Image *</label>
+            <label>Profile Image *</label><br>
             @if(isset($user))
                 <img src="{{url(isset($user)?$user->getTranscriptImage():imageNotFound())}}" height="250" width="200"
                      id="transcript_img">
