@@ -6,10 +6,8 @@
     $('.dropify').dropify();
 
     function anyFileUploader(id){
-        console.log(id);
         $('input[name$="'+id+'_image"]').fileupload({
-
-            url: '{{ url('student/dashboard/save_image') }}' + '/' + id,
+            url: '{{ url("/save_image") }}' + '/' + id,
             done: function(e, data) {
                 $('#'+id+'_img').attr('src', data.result.full_url);
                 $('#'+id+'_path').val(data.result.image_name);
@@ -17,7 +15,7 @@
                 $('#'+id+'_help_text').text('Image Upload Successfully');
             },
             error: function(e,data){
-                $('#'+id+'_help_text').text(eval('e.responseJSON.'+id+'_image')[0]);
+                $('#'+id+'_help_text').text(eval('e.responseJSON.'+id+'_image'));
                 $('#'+ id +'_progress').css('width','0%');
                 console.log(e.responseText);
             },

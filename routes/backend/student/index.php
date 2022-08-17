@@ -27,5 +27,7 @@ Route::group(['prefix' => 'student/dashboard'], function () {
     ]
   ]);
 
-  Route::post('/save_image/{id?}', [App\Http\Controllers\Student\ApplicationController::class, 'save_image'])->middleware(['auth'])->name('save_image');
+ 
 });
+
+Route::post('/save_image/{id?}', [App\Http\Controllers\Student\ApplicationController::class, 'save_image'])->name('save_image');

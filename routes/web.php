@@ -20,4 +20,3 @@ use Illuminate\Support\Facades\Route;
 
 require 'backend/officer/index.php';
 require 'backend/student/index.php';
-require 'backend/ajax.php';

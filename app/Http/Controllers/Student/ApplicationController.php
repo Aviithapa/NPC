@@ -47,7 +47,6 @@ class ApplicationController extends BaseController{
 
     public function save_image(Request $request,$fieldName)
     {
-        return $fieldName;
         try{
             $path =  $request->{$fieldName.'_image'}->store('public/documents');
             if (!$path)

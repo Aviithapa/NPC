@@ -3,7 +3,8 @@
  <head>
     <link rel='icon' href="" type="image/x-icon" />
     <title>NPC</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="_token" content="{{ csrf_token() }}">
     @include('admin.layout.style')
     @include('admin.layout.script')
