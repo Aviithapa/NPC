@@ -296,3 +296,9 @@
 
 
 </div>
+
+
+@push('scripts')
+@include('admin.parties.common.file-upload')
+    
+@endpush

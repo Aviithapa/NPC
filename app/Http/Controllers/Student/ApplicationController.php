@@ -43,4 +43,29 @@ class ApplicationController extends BaseController{
     {
         # code...
     }
+
+
+    public function save_image(Request $request,$fieldName)
+    {
+        return $fieldName;
+        try{
+            $path =  $request->{$fieldName.'_image'}->store('public/documents');
+            if (!$path)
+                return url('storage');
+            $dirs = explode('/', $path);
+            if ($dirs[0] === 'public')
+                $dirs[0] = 'storage';
+            $response['full_url'] = url(implode('/', $dirs));
+            $response['image_name'] = ($request->{$fieldName.'_image'})->hashName();
+            $response['path'] = (implode('/', $dirs));
+            return $response;
+
+        }
+        catch (\Exception $e)
+        {
+            return $e;
+            dd($e);
+        }
+
+    }
 }

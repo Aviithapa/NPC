@@ -3,7 +3,8 @@
  <head>
     <link rel='icon' href="" type="image/x-icon" />
     <title>NPC</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="_token" content="{{ csrf_token() }}">
     @include('admin.layout.style')
     @include('admin.layout.script')
     @stack('style')
@@ -17,6 +18,7 @@
         </div>
         @include('admin.layout.footer')
     </div>
+    @stack('scripts')
 </body>
   
  {{-- <body class="skin-blue sidebar-mini">
