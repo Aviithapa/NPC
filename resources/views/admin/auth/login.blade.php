@@ -11,7 +11,7 @@
 <body>
     
   <div class="container" id="container">
-    <form action="{{ route('login') }}" method="POST">
+    <form action="{{route('admin.login')}}" method="POST">
       @csrf
     <div class="login-container">
       
